@@ -1,0 +1,88 @@
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname LondonRouter
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ bandwidth 750
+ ip address 40.1.1.1 255.0.0.0
+!
+interface GigabitEthernet1/0
+ bandwidth 650
+ ip address 38.2.2.2 255.0.0.0
+!
+interface GigabitEthernet2/0
+ bandwidth 700
+ ip address 33.2.2.2 255.0.0.0
+!
+interface GigabitEthernet3/0
+ bandwidth 800
+ ip address 39.1.1.1 255.0.0.0
+!
+interface FastEthernet9/0
+ ip address 207.7.7.100 255.255.255.0
+ duplex auto
+ speed auto
+!
+router eigrp 10
+ network 207.7.7.0
+ network 38.0.0.0
+ network 33.0.0.0
+ network 39.0.0.0
+ network 40.0.0.0
+ auto-summary
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+no cdp run
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+

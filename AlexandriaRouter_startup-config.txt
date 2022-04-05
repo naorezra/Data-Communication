@@ -1,0 +1,86 @@
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname AlexandriaRouter
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ bandwidth 450
+ ip address 35.2.2.2 255.0.0.0
+!
+interface GigabitEthernet1/0
+ bandwidth 600
+ ip address 30.1.1.1 255.0.0.0
+!
+interface GigabitEthernet2/0
+ bandwidth 500
+ ip address 36.2.2.2 255.0.0.0
+!
+interface GigabitEthernet3/0
+ bandwidth 550
+ ip address 39.2.2.2 255.0.0.0
+!
+interface FastEthernet9/0
+ ip address 150.150.150.100 255.255.0.0
+ duplex auto
+ speed auto
+!
+router eigrp 10
+ network 150.150.0.0
+ network 35.0.0.0
+ network 36.0.0.0
+ network 30.0.0.0
+ network 39.0.0.0
+ auto-summary
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+

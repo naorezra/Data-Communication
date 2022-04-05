@@ -1,0 +1,86 @@
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname MilanoRouter
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ bandwidth 850
+ ip address 40.2.2.2 255.0.0.0
+!
+interface GigabitEthernet1/0
+ bandwidth 900
+ ip address 30.2.2.2 255.0.0.0
+!
+interface GigabitEthernet2/0
+ bandwidth 950
+ ip address 34.2.2.2 255.0.0.0
+!
+interface GigabitEthernet3/0
+ bandwidth 1000
+ ip address 37.2.2.2 255.0.0.0
+!
+interface FastEthernet9/0
+ ip address 195.1.1.100 255.255.255.0
+ duplex auto
+ speed auto
+!
+router eigrp 10
+ network 195.1.1.0
+ network 34.0.0.0
+ network 37.0.0.0
+ network 40.0.0.0
+ network 30.0.0.0
+ auto-summary
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
